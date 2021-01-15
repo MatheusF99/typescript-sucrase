@@ -1,6 +1,6 @@
-import { Schema, model } from 'mongoose'
+import { Schema, model, Document } from 'mongoose'
 
-interface UserProps{
+interface UserProps extends Document{
     email?: string
     firtname: string
     lastname: string
@@ -14,4 +14,4 @@ const UserSchema = new Schema({
     timestamps: true,
 })
 
-export default model('user', UserSchema)
+export default model<UserProps>('user', UserSchema)
